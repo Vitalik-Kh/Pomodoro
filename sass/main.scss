@@ -1,0 +1,175 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/css3";
+@import "variables";
+@import "base";
+
+body {
+    background: gray url('../img/ep_naturalwhiter.png') repeat;
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Exo', sans-serif;
+}
+
+#cog {
+    cursor: pointer;
+    font-size: 40px;
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: gray;
+    @include transition(.3s);
+    &:hover {
+        @include transform(rotate(-90deg));
+    }
+}
+
+.show-modal {
+    background: rgba(black, 0.3) !important;
+    .set-container {
+        @include animation(show-modal .3s);
+        @include animation-fill-mode(forwards);
+    }
+}
+
+.close-modal {
+    background: rgba(black, 0) !important;
+    .set-container {
+        @include animation(close-modal .3s);
+        @include animation-fill-mode(forwards);
+    }
+}
+
+@include keyframes(show-modal) {
+    from { top: 30%; @include opacity(0) }
+    to { top: 45%; @include opacity(1); visibility: visible }
+}
+@include keyframes(close-modal) {
+    from { top: 45%; @include opacity(1); visibility: visible}
+    to {  top: 30%; @include opacity(0); visibility: hidden }
+}
+
+#modal {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(black, 0);
+    @include transition(0.3s);
+    top: 0;
+    left: 0;
+    z-index: 2;
+    .set-container {
+        width: 100%;
+        top: 45%;
+        visibility: hidden;
+        .settings {
+            background: #fff;
+            max-width: 340px;
+            margin:auto;
+            padding: 32px;
+            position: relative;
+            .close-btn {
+                display: block;
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                font-size: 2em;
+                color: gray;
+                cursor: pointer;
+                @include transition(.2s);
+                &:hover {
+                    color: $red;
+                    @include transform(scale(1.3,1.3));
+                }
+            }
+            h3 {
+                text-align: center;
+                margin-bottom: 46px;
+            }
+            input {
+                display: block;
+                font-size: 2em;
+                text-align: center;
+                outline: none;
+                margin-bottom: 42px;
+                width: 100%;
+                border: none;
+                border-bottom: 2px solid lightgray;
+            }
+            [class='col-sm-4'] {
+                margin-bottom: 8px;
+            }
+        }
+    }
+}//modal
+
+
+.pom-container { width: 100% }
+
+#pomodoro {
+    max-width: 840px;
+
+    #watch {
+        position: relative;
+        margin: auto;
+        font-weight: 600;
+        width: 260px;
+        height: 260px;
+        background: $yellow;
+        @include border-radius(50%);
+        @include box-shadow(rgba(black, 0.2) 0 4px 16px,
+                            rgba(black, 0.05) 0 0 16px inset);
+        div {
+            font-size: 4.5em;
+            font-family: 'Dosis', sans-serif;
+        }
+    }
+
+    .pom-btn {
+        text-align: center;
+        position: relative;
+        height: 120px;
+        button {
+            background: none;
+            border: solid 1px lightgray;
+            outline: none;
+            display: block;
+            width: 90px;
+            height: 90px;
+            @include border-radius(50%);
+            font-size: 1.9em;
+            color: lighten($text-color, 10%);
+            position: absolute;
+            top: 50%;
+            @include transform(translate(0,-50%));
+            @include transition(.2s);
+            &:hover {
+                @include transform(scale(1.2,1.2) translateY(-45%));
+                border: none;
+                border-bottom: none !important;
+                border-left: none !important;
+                border-right: none !important;
+            }
+        }
+        #left-btn {
+            right: 0;
+            border-bottom: solid 2px $green;
+            border-left: solid 2px $green;
+            &:hover {
+                background: #a0e21d;
+            }
+        }
+        #right-btn {
+            left: 0;
+            border-bottom: solid 2px $red;
+            border-right: solid 2px $red;
+            &:hover {
+                background: #e2601d;
+            }
+        }
+    }
+}//pomodoro

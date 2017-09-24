@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pomodoro</title>
+    <meta charset='utf-8'>
+    <script src='js/jquery/jquery-3.2.1.js'></script>
+    <script src='js/main.js'></script>
+    <link rel='stylesheet' href='css/bootstrap.css' type='text/css'>
+    <link rel='stylesheet' href='css/font-awesome.css' type='text/css'>
+    <link rel='stylesheet' href='css/main.css' type='text/css'>
+    <link rel='icon' href='' type='image/x-icon'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'
+</head>
+
+<body>
+<div class='global-container'>
+    <i id='cog' class="fa fa-cog" aria-hidden="true"></i>
+    <div id='modal'>
+        <div class='centered set-container' >
+            <div class='settings container-fluid'>
+                <i class="fa fa-times close-btn" id='close-btn' aria-hidden="true"></i>
+                <div class='row'>
+                    <h3>Settings</h3>
+                    <div class='col-sm-4'>
+                        Pomodoro duration:
+                    </div>
+                    <div class='col-sm-8'>
+                        <input type='number' min='0' value='25'>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-sm-4'>
+                        Break duration:
+                    </div>
+                    <div class='col-sm-8'>
+                        <input type='number' min='0' value='5'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='pom-container centered'>
+        <div id='pomodoro' class='container-fluid'>
+            <div class='row'>
+                <div class='col-sm-4 col-sm-push-4 no-padding'>
+                    <div id='watch'>
+                        <div class='centered'>25:00</div>
+                    </div>
+                </div>
+                <div class='col-xs-6 col-sm-4 col-sm-pull-4'>
+                    <div class='pom-btn'>
+                        <button id='left-btn'>Start</button>
+                    </div>
+                </div>
+                <div class='col-xs-6 col-sm-4'>
+                    <div class='pom-btn'>
+                        <button id='right-btn' >Stop</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- Pom container -->
+</div>
+</body>
+
+</html>
