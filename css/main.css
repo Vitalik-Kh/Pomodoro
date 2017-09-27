@@ -2,15 +2,16 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-@import url("https://fonts.googleapis.com/css?family=Dosis:400,500,600");
+@import url("https://fonts.googleapis.com/css?family=Dosis:500,600");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono");
 @import url("https://fonts.googleapis.com/css?family=Exo|Indie+Flower");
 @media screen and (min-width: 778px) {
-  /* line 5, ../sass/_base.scss */
+  /* line 8, ../sass/_base.scss */
   .pom-btn {
     height: 320px !important;
   }
 }
-/* line 8, ../sass/_base.scss */
+/* line 11, ../sass/_base.scss */
 .centered {
   position: absolute;
   top: 50%;
@@ -21,7 +22,7 @@
   transform: translate(-50%, -50%);
 }
 
-/* line 15, ../sass/_base.scss */
+/* line 18, ../sass/_base.scss */
 .no-padding {
   padding: 0;
 }
@@ -49,10 +50,10 @@ body {
 }
 /* line 25, ../sass/main.scss */
 #cog:hover {
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 /* line 30, ../sass/main.scss */
@@ -237,7 +238,6 @@ body {
 #pomodoro #watch {
   position: relative;
   margin: auto;
-  font-weight: 600;
   width: 260px;
   height: 260px;
   background: #e2c21d;
@@ -247,19 +247,23 @@ body {
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 4px 16px, rgba(0, 0, 0, 0.05) 0 0 16px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 4px 16px, rgba(0, 0, 0, 0.05) 0 0 16px inset;
   box-shadow: rgba(0, 0, 0, 0.2) 0 4px 16px, rgba(0, 0, 0, 0.05) 0 0 16px inset;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
-/* line 126, ../sass/main.scss */
-#pomodoro #watch div {
-  font-size: 4.5em;
-  font-family: 'Dosis', sans-serif;
+/* line 127, ../sass/main.scss */
+#pomodoro #watch div span {
+  font-size: 4.8em;
+  font-family: 'Ubuntu Mono', monospace;
 }
-/* line 132, ../sass/main.scss */
+/* line 134, ../sass/main.scss */
 #pomodoro .pom-btn {
   text-align: center;
   position: relative;
   height: 120px;
 }
-/* line 136, ../sass/main.scss */
+/* line 138, ../sass/main.scss */
 #pomodoro .pom-btn button {
   background: none;
   border: solid 1px lightgray;
@@ -283,7 +287,7 @@ body {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
-/* line 150, ../sass/main.scss */
+/* line 152, ../sass/main.scss */
 #pomodoro .pom-btn button:hover {
   -moz-transform: scale(1.2, 1.2) translateY(-45%);
   -ms-transform: scale(1.2, 1.2) translateY(-45%);
@@ -294,23 +298,23 @@ body {
   border-left: none !important;
   border-right: none !important;
 }
-/* line 158, ../sass/main.scss */
+/* line 160, ../sass/main.scss */
 #pomodoro .pom-btn #left-btn {
   right: 0;
   border-bottom: solid 2px #a0e21d;
   border-left: solid 2px #a0e21d;
 }
-/* line 162, ../sass/main.scss */
+/* line 164, ../sass/main.scss */
 #pomodoro .pom-btn #left-btn:hover {
   background: #a0e21d;
 }
-/* line 166, ../sass/main.scss */
+/* line 168, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn {
   left: 0;
   border-bottom: solid 2px #e2601d;
   border-right: solid 2px #e2601d;
 }
-/* line 170, ../sass/main.scss */
+/* line 172, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn:hover {
   background: #e2601d;
 }

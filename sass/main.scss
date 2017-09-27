@@ -23,7 +23,7 @@ body {
     color: gray;
     @include transition(.3s);
     &:hover {
-        @include transform(rotate(-90deg));
+        @include transform(rotate(-45deg));
     }
 }
 
@@ -116,16 +116,18 @@ body {
     #watch {
         position: relative;
         margin: auto;
-        font-weight: 600;
         width: 260px;
         height: 260px;
         background: $yellow;
         @include border-radius(50%);
         @include box-shadow(rgba(black, 0.2) 0 4px 16px,
                             rgba(black, 0.05) 0 0 16px inset);
+        @include transition(1s);
         div {
-            font-size: 4.5em;
-            font-family: 'Dosis', sans-serif;
+            span {
+                font-size: 4.8em;
+                font-family: 'Ubuntu Mono', monospace;
+            }
         }
     }
 
