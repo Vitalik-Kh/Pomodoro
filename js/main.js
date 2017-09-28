@@ -29,21 +29,29 @@ $(document).ready(function() {
         }, 400);
         pomDuration = $('#pom-duration').val();
         breakDuration = $('#break-duration').val();
-        $('#timer').text(pomDuration + ':00');
+        if ($('#left-btn').data('state').stoped === true) {
+            if (sessionType === 'pomodoro') {
+                $('#timer').text(pomDuration + ':00');
+            } else {
+                $('#timer').text(breakDuration + ':00');
+            }
+        }
+
     }
 
     //Pomodoro Timer
-    var timerOn = false;
     var pomDuration = $('#pom-duration').val();
     var breakDuration = $('#break-duration').val();
-    $('#timer').text(zeroBefore(pomDuration) + ':00');
+    var sessionType = 'pomodoro';
 
     //start button/pomodoro states
     $('#left-btn').data('state', { 'stoped':true, 'paused':false });
     $('#left-btn').click(function() {
         var leftBtn = $(this).data('state');
         if (leftBtn.stoped && !leftBtn.paused) {
-            startTimer(pomDuration);
+            if (sessionType === 'pomodoro') {
+                startTimer(pomDuration);
+            } else { startTimer(breakDuration); }
             leftBtn.stoped = false;
             $(this).text('Pause');
         } else if (!leftBtn.stoped && !leftBtn.paused) {
@@ -73,12 +81,16 @@ $(document).ready(function() {
                 if (distance <= 1000) {
                     clearInterval(id)
                     leftBtn.stoped = true;
-                    return startBreak(breakDuration);
+                    if (sessionType === 'pomodoro') {
+                        return startBreak();
+                    } else { return startPomodoro(); }
+
                 } else if ($('#right-btn').data('clicked')) {
                     clearInterval(id)
                     leftBtn.stoped = true;
-                    $('#timer').text(pomDuration + ':00');
+                    leftBtn.paused = false;
                     $('#right-btn').data('clicked', false);
+                    startPomodoro();
                 }
             }, 100);
         }
@@ -96,4 +108,18 @@ $(document).ready(function() {
         } else { return x }
     }
 
+    function startBreak() {
+        $('#left-btn').text('Start');
+        $('#timer').text(zeroBefore(breakDuration) + ':00');
+        $('#watch').css('background', '#1de2b2');
+        sessionType = 'break';
+    }
+
+    function startPomodoro() {
+        $('#left-btn').text('Start');
+        $('#timer').text(zeroBefore(pomDuration) + ':00');
+        $('#watch').css('background', '#e2c21d');
+        sessionType = 'pomodoro';
+    }
+    startPomodoro();
 });
