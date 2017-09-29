@@ -48,10 +48,10 @@ $(document).ready(function() {
             $(this).text('Pause');
         } else if (!leftBtn.stoped && !leftBtn.paused) {
             leftBtn.paused = true;
-            $(this).text('Resume');
+            $(this).text('Resume').css('font-size','1.4em');
         } else if (!leftBtn.stoped && leftBtn.paused) {
             leftBtn.paused = false;
-            $(this).text('Pause');
+            $(this).text('Pause').css('font-size','1.9em');
         }
     });
 
@@ -146,14 +146,14 @@ $(document).ready(function() {
     }
 
     function startBreak() {
-        $('#left-btn').text('Start');
+        $('#left-btn').text('Start').css('font-size','1.9em');
         $('#timer').text(zeroBefore(breakDuration) + ':00');
         $('#watch').css('background', '#1de2b2');
         sessionType = 'break';
     }
 
     function startPomodoro() {
-        $('#left-btn').text('Start');
+        $('#left-btn').text('Start').css('font-size','1.9em');
         $('#timer').text(zeroBefore(pomDuration) + ':00');
         $('#watch').css('background', '#e2c21d');
         sessionType = 'pomodoro';

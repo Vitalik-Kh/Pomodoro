@@ -44,10 +44,10 @@ body {
   top: 30px;
   right: 40px;
   color: gray;
-  -moz-transition: 0.3s;
-  -o-transition: 0.3s;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  -o-transition: -o-transform 0.3s;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
 }
 /* line 26, ../sass/main.scss */
 #cog:hover {
@@ -248,10 +248,10 @@ body {
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 4px 16px, rgba(0, 0, 0, 0.05) 0 0 16px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 4px 16px, rgba(0, 0, 0, 0.05) 0 0 16px inset;
   box-shadow: rgba(0, 0, 0, 0.2) 0 4px 16px, rgba(0, 0, 0, 0.05) 0 0 16px inset;
-  -moz-transition: 1s;
-  -o-transition: 1s;
-  -webkit-transition: 1s;
-  transition: 1s;
+  -moz-transition: background-color 1s;
+  -o-transition: background-color 1s;
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
 }
 /* line 128, ../sass/main.scss */
 #pomodoro #watch div span {
@@ -284,10 +284,10 @@ body {
   -ms-transform: translate(0, -50%);
   -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
-  -moz-transition: 0.2s;
-  -o-transition: 0.2s;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -moz-transition: -moz-transform 0.2s;
+  -o-transition: -o-transform 0.2s;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
 }
 /* line 154, ../sass/main.scss */
 #pomodoro .pom-btn button:hover {
