@@ -14,6 +14,7 @@ body {
 }
 
 #cog {
+    z-index: 1;
     cursor: pointer;
     font-size: 40px;
     display: block;
@@ -61,7 +62,7 @@ body {
     @include transition(0.3s);
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 3;
     .set-container {
         width: 100%;
         top: 45%;
@@ -132,6 +133,7 @@ body {
     }
 
     .pom-btn {
+        z-index: 1;
         text-align: center;
         position: relative;
         height: 120px;
@@ -175,3 +177,56 @@ body {
         }
     }
 }//pomodoro
+
+#message {
+    z-index: 2;
+    color: #f6f6f6;
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    background: lightgray;
+    padding: 24px 40px;
+    display: none;
+    @include border-radius(5px);
+    @include transform(translateX(-50%));
+    #m-title {
+        font-size: 1.4em;
+        text-align: center;
+        display: block;
+    }
+    #m-text {
+        display: block;
+        margin-top: 5px;
+        font-size: 1em;
+        text-align: center;
+    }
+}
+
+.show-message {
+    @include animation(show-message .4s);
+    @include animation-fill-mode(forwards);
+}
+
+.hide-message {
+    @include animation(hide-message 1s);
+    @include animation-fill-mode(forwards);
+}
+
+@include keyframes(show-message) {
+    from {
+        display: none;
+        bottom: 20px;
+        @include opacity(0); }
+    to {
+        display: block !important;
+        bottom: 80px;
+        @include opacity(1); }
+}
+@include keyframes(hide-message) {
+    from {
+        display: block;
+        @include opacity(1); }
+    to {
+        @include opacity(0);
+        display: none; }
+}

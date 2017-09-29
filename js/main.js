@@ -27,16 +27,8 @@ $(document).ready(function() {
         setTimeout(function() {
             $('#modal').css('display','none');
         }, 400);
-        pomDuration = $('#pom-duration').val();
-        breakDuration = $('#break-duration').val();
-        if ($('#left-btn').data('state').stoped === true) {
-            if (sessionType === 'pomodoro') {
-                $('#timer').text(pomDuration + ':00');
-            } else {
-                $('#timer').text(breakDuration + ':00');
-            }
-        }
 
+        inputValidation();
     }
 
     //Pomodoro Timer
@@ -81,6 +73,7 @@ $(document).ready(function() {
                 if (distance <= 1000) {
                     clearInterval(id)
                     leftBtn.stoped = true;
+                    leftBtn.paused = false;
                     if (sessionType === 'pomodoro') {
                         return startBreak();
                     } else { return startPomodoro(); }
@@ -90,7 +83,7 @@ $(document).ready(function() {
                     leftBtn.stoped = true;
                     leftBtn.paused = false;
                     $('#right-btn').data('clicked', false);
-                    startPomodoro();
+                    return startPomodoro();
                 }
             }, 100);
         }
@@ -106,6 +99,50 @@ $(document).ready(function() {
         if (x < 10) {
             return "0" + x;
         } else { return x }
+    }
+
+    function inputIsValid(x) {
+        if (parseInt(x) !== NaN) {
+            if (x >= 1 && x <= 60) {
+                return true;
+            } else { return false }
+        }
+    }
+
+    function inputValidation() {
+        tempPom = Math.round($('#pom-duration').val());
+        tempBreak = Math.round($('#break-duration').val());
+
+        if (inputIsValid(tempPom)) {
+            pomDuration = tempPom;
+            $('#pom-duration').val(tempPom);
+        } else { showMessage('Wrong input','#e2601d','Choose timer between 1 to 60 minutes'); }
+
+        if (inputIsValid(tempBreak)) {
+            breakDuration = tempBreak;
+            $('#break-duration').val(tempBreak);
+        } else { showMessage('Wrong input','#e2601d','Choose timer between 1 to 60 minutes'); }
+
+        if ($('#left-btn').data('state').stoped === true) {
+            if (sessionType === 'pomodoro') {
+                $('#timer').text(pomDuration + ':00');
+            } else {
+                $('#timer').text(breakDuration + ':00');
+            }
+        }
+    }
+
+    function showMessage(title, color, text='') {
+        $('#message').css({'display':'block', 'backgroundColor':color}).removeClass('hide-message').addClass('show-message');
+        $('#m-title').text(title);
+        $('#m-text').text(text);
+        setTimeout(function() {
+            $('#message').removeClass('show-message').addClass('hide-message');
+
+        }, 3000);
+        setTimeout(function() {
+            $('#message').css('display','none');
+        }, 4500);
     }
 
     function startBreak() {

@@ -36,6 +36,7 @@ body {
 
 /* line 16, ../sass/main.scss */
 #cog {
+  z-index: 1;
   cursor: pointer;
   font-size: 40px;
   display: block;
@@ -48,7 +49,7 @@ body {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
-/* line 25, ../sass/main.scss */
+/* line 26, ../sass/main.scss */
 #cog:hover {
   -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
@@ -56,11 +57,11 @@ body {
   transform: rotate(-45deg);
 }
 
-/* line 30, ../sass/main.scss */
+/* line 31, ../sass/main.scss */
 .show-modal {
   background: rgba(0, 0, 0, 0.3) !important;
 }
-/* line 32, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
 .show-modal .set-container {
   -moz-animation: show-modal 0.3s;
   -webkit-animation: show-modal 0.3s;
@@ -70,11 +71,11 @@ body {
   animation-fill-mode: forwards;
 }
 
-/* line 38, ../sass/main.scss */
+/* line 39, ../sass/main.scss */
 .close-modal {
   background: transparent !important;
 }
-/* line 40, ../sass/main.scss */
+/* line 41, ../sass/main.scss */
 .close-modal .set-container {
   -moz-animation: close-modal 0.3s;
   -webkit-animation: close-modal 0.3s;
@@ -153,7 +154,7 @@ body {
     visibility: hidden;
   }
 }
-/* line 55, ../sass/main.scss */
+/* line 56, ../sass/main.scss */
 #modal {
   position: fixed;
   display: none;
@@ -166,15 +167,15 @@ body {
   transition: 0.3s;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
 }
-/* line 65, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 #modal .set-container {
   width: 100%;
   top: 45%;
   visibility: hidden;
 }
-/* line 69, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 #modal .set-container .settings {
   background: #fff;
   max-width: 340px;
@@ -182,7 +183,7 @@ body {
   padding: 32px;
   position: relative;
 }
-/* line 75, ../sass/main.scss */
+/* line 76, ../sass/main.scss */
 #modal .set-container .settings .close-btn {
   display: block;
   position: absolute;
@@ -196,7 +197,7 @@ body {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
-/* line 84, ../sass/main.scss */
+/* line 85, ../sass/main.scss */
 #modal .set-container .settings .close-btn:hover {
   color: #e2601d;
   -moz-transform: scale(1.3, 1.3);
@@ -204,12 +205,12 @@ body {
   -webkit-transform: scale(1.3, 1.3);
   transform: scale(1.3, 1.3);
 }
-/* line 89, ../sass/main.scss */
+/* line 90, ../sass/main.scss */
 #modal .set-container .settings h3 {
   text-align: center;
   margin-bottom: 46px;
 }
-/* line 93, ../sass/main.scss */
+/* line 94, ../sass/main.scss */
 #modal .set-container .settings input {
   display: block;
   font-size: 2em;
@@ -220,21 +221,21 @@ body {
   border: none;
   border-bottom: 2px solid lightgray;
 }
-/* line 103, ../sass/main.scss */
+/* line 104, ../sass/main.scss */
 #modal .set-container .settings [class='col-sm-4'] {
   margin-bottom: 8px;
 }
 
-/* line 111, ../sass/main.scss */
+/* line 112, ../sass/main.scss */
 .pom-container {
   width: 100%;
 }
 
-/* line 113, ../sass/main.scss */
+/* line 114, ../sass/main.scss */
 #pomodoro {
   max-width: 840px;
 }
-/* line 116, ../sass/main.scss */
+/* line 117, ../sass/main.scss */
 #pomodoro #watch {
   position: relative;
   margin: auto;
@@ -252,18 +253,19 @@ body {
   -webkit-transition: 1s;
   transition: 1s;
 }
-/* line 127, ../sass/main.scss */
+/* line 128, ../sass/main.scss */
 #pomodoro #watch div span {
   font-size: 4.8em;
   font-family: 'Ubuntu Mono', monospace;
 }
-/* line 134, ../sass/main.scss */
+/* line 135, ../sass/main.scss */
 #pomodoro .pom-btn {
+  z-index: 1;
   text-align: center;
   position: relative;
   height: 120px;
 }
-/* line 138, ../sass/main.scss */
+/* line 140, ../sass/main.scss */
 #pomodoro .pom-btn button {
   background: none;
   border: solid 1px lightgray;
@@ -287,7 +289,7 @@ body {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
-/* line 152, ../sass/main.scss */
+/* line 154, ../sass/main.scss */
 #pomodoro .pom-btn button:hover {
   -moz-transform: scale(1.2, 1.2) translateY(-45%);
   -ms-transform: scale(1.2, 1.2) translateY(-45%);
@@ -298,23 +300,142 @@ body {
   border-left: none !important;
   border-right: none !important;
 }
-/* line 160, ../sass/main.scss */
+/* line 162, ../sass/main.scss */
 #pomodoro .pom-btn #left-btn {
   right: 0;
   border-bottom: solid 2px #a0e21d;
   border-left: solid 2px #a0e21d;
 }
-/* line 164, ../sass/main.scss */
+/* line 166, ../sass/main.scss */
 #pomodoro .pom-btn #left-btn:hover {
   background: #a0e21d;
 }
-/* line 168, ../sass/main.scss */
+/* line 170, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn {
   left: 0;
   border-bottom: solid 2px #e2601d;
   border-right: solid 2px #e2601d;
 }
-/* line 172, ../sass/main.scss */
+/* line 174, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn:hover {
   background: #e2601d;
+}
+
+/* line 181, ../sass/main.scss */
+#message {
+  z-index: 2;
+  color: #f6f6f6;
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  background: lightgray;
+  padding: 24px 40px;
+  display: none;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+/* line 192, ../sass/main.scss */
+#message #m-title {
+  font-size: 1.4em;
+  text-align: center;
+  display: block;
+}
+/* line 197, ../sass/main.scss */
+#message #m-text {
+  display: block;
+  margin-top: 5px;
+  font-size: 1em;
+  text-align: center;
+}
+
+/* line 205, ../sass/main.scss */
+.show-message {
+  -moz-animation: show-message 0.4s;
+  -webkit-animation: show-message 0.4s;
+  animation: show-message 0.4s;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+/* line 210, ../sass/main.scss */
+.hide-message {
+  -moz-animation: hide-message 1s;
+  -webkit-animation: hide-message 1s;
+  animation: hide-message 1s;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@-moz-keyframes show-message {
+  from {
+    display: none;
+    bottom: 20px;
+    opacity: 0;
+  }
+  to {
+    display: block !important;
+    bottom: 80px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes show-message {
+  from {
+    display: none;
+    bottom: 20px;
+    opacity: 0;
+  }
+  to {
+    display: block !important;
+    bottom: 80px;
+    opacity: 1;
+  }
+}
+@keyframes show-message {
+  from {
+    display: none;
+    bottom: 20px;
+    opacity: 0;
+  }
+  to {
+    display: block !important;
+    bottom: 80px;
+    opacity: 1;
+  }
+}
+@-moz-keyframes hide-message {
+  from {
+    display: block;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+@-webkit-keyframes hide-message {
+  from {
+    display: block;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes hide-message {
+  from {
+    display: block;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
 }
