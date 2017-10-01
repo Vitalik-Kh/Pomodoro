@@ -278,6 +278,9 @@ body {
   width: 260px;
   height: 260px;
   background: #e2c21d;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
@@ -288,20 +291,56 @@ body {
   -o-transition: background-color 1s;
   -webkit-transition: background-color 1s;
   transition: background-color 1s;
+  -moz-animation: app-start-pom 1.2s;
+  -webkit-animation: app-start-pom 1.2s;
+  animation: app-start-pom 1.2s;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
-/* line 153, ../sass/main.scss */
+/* line 156, ../sass/main.scss */
 #pomodoro .radial-progress #watch div span {
   font-size: 4.8em;
   font-family: 'Ubuntu Mono', monospace;
 }
-/* line 161, ../sass/main.scss */
+@-moz-keyframes app-start-pom {
+  from {
+    top: -150px;
+    opacity: 0;
+  }
+  to {
+    top: 4px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes app-start-pom {
+  from {
+    top: -150px;
+    opacity: 0;
+  }
+  to {
+    top: 4px;
+    opacity: 1;
+  }
+}
+@keyframes app-start-pom {
+  from {
+    top: -150px;
+    opacity: 0;
+  }
+  to {
+    top: 4px;
+    opacity: 1;
+  }
+}
+/* line 169, ../sass/main.scss */
 #pomodoro .pom-btn {
   z-index: 1;
   text-align: center;
   position: relative;
   height: 120px;
 }
-/* line 166, ../sass/main.scss */
+/* line 174, ../sass/main.scss */
 #pomodoro .pom-btn button {
   background: none;
   border: solid 1px lightgray;
@@ -324,8 +363,11 @@ body {
   -o-transition: -o-transform 0.2s;
   -webkit-transition: -webkit-transform 0.2s;
   transition: transform 0.2s;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
-/* line 180, ../sass/main.scss */
+/* line 189, ../sass/main.scss */
 #pomodoro .pom-btn button:hover {
   -moz-transform: scale(1.2, 1.2) translateY(-45%);
   -ms-transform: scale(1.2, 1.2) translateY(-45%);
@@ -336,64 +378,129 @@ body {
   border-left: none !important;
   border-right: none !important;
 }
-/* line 188, ../sass/main.scss */
+/* line 197, ../sass/main.scss */
 #pomodoro .pom-btn #left-btn {
   right: 0;
   border-bottom: solid 2px #a0e21d;
   border-left: solid 2px #a0e21d;
+  -moz-animation: app-start-left-btn 1.2s;
+  -webkit-animation: app-start-left-btn 1.2s;
+  animation: app-start-left-btn 1.2s;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
-/* line 192, ../sass/main.scss */
+/* line 203, ../sass/main.scss */
 #pomodoro .pom-btn #left-btn:hover {
   background: #a0e21d;
 }
-/* line 195, ../sass/main.scss */
+/* line 206, ../sass/main.scss */
 #pomodoro .pom-btn #left-btn:active {
   -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
   box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
 }
-/* line 199, ../sass/main.scss */
+/* line 210, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn {
   left: 0;
   border-bottom: solid 2px #e2601d;
   border-right: solid 2px #e2601d;
+  -moz-animation: app-start-right-btn 1.2s;
+  -webkit-animation: app-start-right-btn 1.2s;
+  animation: app-start-right-btn 1.2s;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
-/* line 203, ../sass/main.scss */
+/* line 216, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn:hover {
   background: #e2601d;
 }
-/* line 206, ../sass/main.scss */
+/* line 219, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn:active {
   -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
   box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
 }
-
-/* line 213, ../sass/main.scss */
+@-moz-keyframes app-start-left-btn {
+  from {
+    right: 100px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes app-start-left-btn {
+  from {
+    right: 100px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+@keyframes app-start-left-btn {
+  from {
+    right: 100px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+@-moz-keyframes app-start-right-btn {
+  from {
+    left: 100px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes app-start-right-btn {
+  from {
+    left: 100px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+@keyframes app-start-right-btn {
+  from {
+    left: 100px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+/* line 235, ../sass/main.scss */
 #message {
   z-index: 2;
-  color: #f6f6f6;
   position: fixed;
-  bottom: 80px;
+  bottom: 3%;
   left: 50%;
-  background: lightgray;
-  padding: 24px 40px;
   display: none;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
-/* line 224, ../sass/main.scss */
+/* line 242, ../sass/main.scss */
 #message #m-title {
   font-size: 1.4em;
   text-align: center;
   display: block;
 }
-/* line 229, ../sass/main.scss */
+/* line 247, ../sass/main.scss */
 #message #m-text {
   display: block;
   margin-top: 5px;
@@ -401,7 +508,7 @@ body {
   text-align: center;
 }
 
-/* line 237, ../sass/main.scss */
+/* line 255, ../sass/main.scss */
 .show-message {
   -moz-animation: show-message 0.4s;
   -webkit-animation: show-message 0.4s;
@@ -411,7 +518,7 @@ body {
   animation-fill-mode: forwards;
 }
 
-/* line 242, ../sass/main.scss */
+/* line 260, ../sass/main.scss */
 .hide-message {
   -moz-animation: hide-message 1s;
   -webkit-animation: hide-message 1s;
@@ -424,36 +531,36 @@ body {
 @-moz-keyframes show-message {
   from {
     display: none;
-    bottom: 20px;
+    bottom: 0%;
     opacity: 0;
   }
   to {
     display: block !important;
-    bottom: 80px;
+    bottom: 3%;
     opacity: 1;
   }
 }
 @-webkit-keyframes show-message {
   from {
     display: none;
-    bottom: 20px;
+    bottom: 0%;
     opacity: 0;
   }
   to {
     display: block !important;
-    bottom: 80px;
+    bottom: 3%;
     opacity: 1;
   }
 }
 @keyframes show-message {
   from {
     display: none;
-    bottom: 20px;
+    bottom: 0%;
     opacity: 0;
   }
   to {
     display: block !important;
-    bottom: 80px;
+    bottom: 3%;
     opacity: 1;
   }
 }

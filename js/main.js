@@ -72,12 +72,14 @@ $(document).ready(function() {
                     $('#timer').text(min + ":" + sec);
                     progress_percents += step_in_percents/2;
                     progress_deg = progress_percents * 360;
-                    randomize(progress_deg);
+                    rotate(progress_deg);
+                    document.title = min + ':' + sec + ' Pomodoro';
                 } else {
                     stopTime += 100;
                 }
                 if (distance <= 100) {
                     clearInterval(id)
+                    notification();
                     leftBtn.stoped = true;
                     leftBtn.paused = false;
                     if (sessionType === 'pomodoro') {
@@ -89,7 +91,7 @@ $(document).ready(function() {
                     leftBtn.stoped = true;
                     leftBtn.paused = false;
                     $('#right-btn').data('clicked', false);
-                    return startPomodoro();
+                    startPomodoro();
                 }
             }, 100);
         }
@@ -97,7 +99,12 @@ $(document).ready(function() {
 
     //if stop button was clicked
     $('#right-btn').click(function() {
-        $(this).data('clicked', true);
+        var leftBtn = $('#left-btn').data('state');
+        if (!leftBtn.stoped) {
+            $(this).data('clicked', true); }
+        if (leftBtn.stoped && sessionType === 'break') {
+            startPomodoro();
+        }
     });
 
     //return double digit value
@@ -131,15 +138,15 @@ $(document).ready(function() {
 
         if ($('#left-btn').data('state').stoped === true) {
             if (sessionType === 'pomodoro') {
-                $('#timer').text(pomDuration + ':00');
+                $('#timer').text(zeroBefore(pomDuration) + ':00');
             } else {
-                $('#timer').text(breakDuration + ':00');
+                $('#timer').text(zeroBefore(breakDuration) + ':00');
             }
         }
     }
 
     function showMessage(title, color, text='') {
-        $('#message').css({'display':'block', 'backgroundColor':color}).removeClass('hide-message').addClass('show-message');
+        $('#message').css({'display':'block', 'color':color}).removeClass('hide-message').addClass('show-message');
         $('#m-title').text(title);
         $('#m-text').text(text);
         setTimeout(function() {
@@ -155,7 +162,7 @@ $(document).ready(function() {
     var transform_styles = ['-webkit-transform',
                             'ms-transform',
                             'transform'];
-    function randomize(x) {
+    function rotate(x) {
         var rotation = x;
         var rotation_fix = rotation * 2;
         for(i in transform_styles) {
@@ -165,17 +172,27 @@ $(document).ready(function() {
         }
     }
 
+    //audio notification
+    function notification() {
+        var filename = 'audio/ding_ling';
+        $('#sound').html('<audio autoplay="autoplay"><source src="' + filename + '.mp3" type="audio/mpeg" /><source src="' + filename + '.ogg" type="audio/ogg" /><embed hidden="true" autostart="true" loop="false" src="' + filename +'.mp3" /></audio>');
+    }
+
     function startBreak() {
-        randomize(0);
+        rotate(0);
+        document.title = breakDuration + ':00 Pomodoro';
         $('#left-btn').text('Start').css('font-size','1.9em');
+        $('#right-btn').text('Skip');
         $('#timer').text(zeroBefore(breakDuration) + ':00');
         $('#watch').css('background', '#1de2b2');
         sessionType = 'break';
     }
 
     function startPomodoro() {
-        randomize(0);
+        rotate(0);
+        document.title = pomDuration + ':00 Pomodoro';
         $('#left-btn').text('Start').css('font-size','1.9em');
+        $('#right-btn').text('Stop');
         $('#timer').text(zeroBefore(pomDuration) + ':00');
         $('#watch').css('background', '#e2c21d');
         sessionType = 'pomodoro';

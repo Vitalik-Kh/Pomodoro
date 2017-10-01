@@ -145,10 +145,13 @@ body {
             width: 260px;
             height: 260px;
             background: $yellow;
+            @include backface-visibility(hidden);
             @include border-radius(50%);
             @include box-shadow(rgba(black, 0.2) 0 4px 16px,
                                 rgba(black, 0.05) 0 0 16px inset);
             @include transition(background-color 1s);
+            @include animation(app-start-pom 1.2s);
+            @include animation-fill-mode(forwards);
             div {
                 span {
                     font-size: 4.8em;
@@ -156,6 +159,11 @@ body {
                 }
             }
         }
+    }
+
+    @include keyframes(app-start-pom) {
+        from { top:-150px; @include opacity(0)}
+        to { top: 4px; @include opacity(1)}
     }
 
     .pom-btn {
@@ -177,6 +185,7 @@ body {
             top: 50%;
             @include transform(translate(0,-50%));
             @include transition(transform .2s);
+            @include backface-visibility(hidden);
             &:hover {
                 @include transform(scale(1.2,1.2) translateY(-45%));
                 border: none;
@@ -189,6 +198,8 @@ body {
             right: 0;
             border-bottom: solid 2px $green;
             border-left: solid 2px $green;
+            @include animation(app-start-left-btn 1.2s);
+            @include animation-fill-mode(forwards);
             &:hover {
                 background: $green;
             }
@@ -200,6 +211,8 @@ body {
             left: 0;
             border-bottom: solid 2px $red;
             border-right: solid 2px $red;
+            @include animation(app-start-right-btn 1.2s);
+            @include animation-fill-mode(forwards);
             &:hover {
                 background: $red;
             }
@@ -207,19 +220,24 @@ body {
                 @include box-shadow(rgba(black,0.4) 0 2px 8px inset);
             }
         }
+
+        @include keyframes(app-start-left-btn) {
+            from { right:100px; @include opacity(0) }
+            to { right:0; @include opacity(1) }
+        }
+        @include keyframes(app-start-right-btn) {
+            from { left:100px; @include opacity(0) }
+            to { left:0; @include opacity(1) }
+        }
     }
 }//pomodoro
 
 #message {
     z-index: 2;
-    color: #f6f6f6;
     position: fixed;
-    bottom: 80px;
+    bottom: 3%;
     left: 50%;
-    background: lightgray;
-    padding: 24px 40px;
     display: none;
-    @include border-radius(5px);
     @include transform(translateX(-50%));
     #m-title {
         font-size: 1.4em;
@@ -247,11 +265,11 @@ body {
 @include keyframes(show-message) {
     from {
         display: none;
-        bottom: 20px;
+        bottom: 0%;
         @include opacity(0); }
     to {
         display: block !important;
-        bottom: 80px;
+        bottom: 3%;
         @include opacity(1); }
 }
 @include keyframes(hide-message) {
