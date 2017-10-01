@@ -61,16 +61,22 @@ $(document).ready(function() {
         if (leftBtn.stoped === true) {
             leftBtn.stoped = false;
             var stopTime = new Date().getTime() + (duration * 60 * 1000);
+            var progress_percents = 0;
+            var progress_deg;
+            var step_in_percents = 100 / (duration * 60 * 1000);
             var id = setInterval(function() {
                 var distance = stopTime - new Date().getTime();
                 if (leftBtn.paused === false) {
                     var min = zeroBefore(Math.floor(distance / (1000 * 60)));
                     var sec = zeroBefore(Math.floor(distance % (1000 * 60) / 1000));
                     $('#timer').text(min + ":" + sec);
+                    progress_percents += step_in_percents/2;
+                    progress_deg = progress_percents * 360;
+                    randomize(progress_deg);
                 } else {
                     stopTime += 100;
                 }
-                if (distance <= 1000) {
+                if (distance <= 100) {
                     clearInterval(id)
                     leftBtn.stoped = true;
                     leftBtn.paused = false;
@@ -145,7 +151,22 @@ $(document).ready(function() {
         }, 4500);
     }
 
+    //radial progress
+    var transform_styles = ['-webkit-transform',
+                            'ms-transform',
+                            'transform'];
+    function randomize(x) {
+        var rotation = x;
+        var rotation_fix = rotation * 2;
+        for(i in transform_styles) {
+            $('.circle .fill, .circle .mask.full').css(transform_styles[i],
+                         'rotate(' + rotation + 'deg)');
+            $('.circle .fill.fix').css(transform_styles[i], 'rotate(' + rotation_fix + 'deg)');
+        }
+    }
+
     function startBreak() {
+        randomize(0);
         $('#left-btn').text('Start').css('font-size','1.9em');
         $('#timer').text(zeroBefore(breakDuration) + ':00');
         $('#watch').css('background', '#1de2b2');
@@ -153,6 +174,7 @@ $(document).ready(function() {
     }
 
     function startPomodoro() {
+        randomize(0);
         $('#left-btn').text('Start').css('font-size','1.9em');
         $('#timer').text(zeroBefore(pomDuration) + ':00');
         $('#watch').css('background', '#e2c21d');
