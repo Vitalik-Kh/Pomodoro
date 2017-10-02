@@ -237,15 +237,22 @@ body {
 }
 /* line 117, ../sass/main.scss */
 #pomodoro .radial-progress {
+  overflow: hidden;
   position: relative;
   width: 268px;
   height: 268px;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+  -moz-animation: app-start-pom 1.2s;
+  -webkit-animation: app-start-pom 1.2s;
+  animation: app-start-pom 1.2s;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
   margin: auto;
 }
-/* line 125, ../sass/main.scss */
+/* line 128, ../sass/main.scss */
 #pomodoro .radial-progress .circle .mask, #pomodoro .radial-progress .circle .fill {
   width: 268px;
   height: 268px;
@@ -261,16 +268,16 @@ body {
   -webkit-transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
 }
-/* line 133, ../sass/main.scss */
+/* line 136, ../sass/main.scss */
 #pomodoro .radial-progress .circle .mask {
   clip: rect(0px, 268px, 268px, 134px);
 }
-/* line 135, ../sass/main.scss */
+/* line 138, ../sass/main.scss */
 #pomodoro .radial-progress .circle .mask .fill {
   clip: rect(0px, 134px, 268px, 0px);
   background-color: #a0e21d;
 }
-/* line 141, ../sass/main.scss */
+/* line 144, ../sass/main.scss */
 #pomodoro .radial-progress #watch {
   position: absolute;
   top: 4px;
@@ -291,14 +298,8 @@ body {
   -o-transition: background-color 1s;
   -webkit-transition: background-color 1s;
   transition: background-color 1s;
-  -moz-animation: app-start-pom 1.2s;
-  -webkit-animation: app-start-pom 1.2s;
-  animation: app-start-pom 1.2s;
-  -moz-animation-fill-mode: forwards;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
 }
-/* line 156, ../sass/main.scss */
+/* line 157, ../sass/main.scss */
 #pomodoro .radial-progress #watch div span {
   font-size: 4.8em;
   font-family: 'Ubuntu Mono', monospace;
@@ -333,14 +334,14 @@ body {
     opacity: 1;
   }
 }
-/* line 169, ../sass/main.scss */
+/* line 170, ../sass/main.scss */
 #pomodoro .pom-btn {
   z-index: 1;
   text-align: center;
   position: relative;
   height: 120px;
 }
-/* line 174, ../sass/main.scss */
+/* line 175, ../sass/main.scss */
 #pomodoro .pom-btn button {
   background: none;
   border: solid 1px lightgray;
@@ -367,7 +368,7 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-/* line 189, ../sass/main.scss */
+/* line 190, ../sass/main.scss */
 #pomodoro .pom-btn button:hover {
   -moz-transform: scale(1.2, 1.2) translateY(-45%);
   -ms-transform: scale(1.2, 1.2) translateY(-45%);
@@ -378,7 +379,7 @@ body {
   border-left: none !important;
   border-right: none !important;
 }
-/* line 197, ../sass/main.scss */
+/* line 198, ../sass/main.scss */
 #pomodoro .pom-btn #left-btn {
   right: 0;
   border-bottom: solid 2px #a0e21d;
@@ -390,17 +391,17 @@ body {
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
-/* line 203, ../sass/main.scss */
+/* line 204, ../sass/main.scss */
 #pomodoro .pom-btn #left-btn:hover {
   background: #a0e21d;
 }
-/* line 206, ../sass/main.scss */
+/* line 207, ../sass/main.scss */
 #pomodoro .pom-btn #left-btn:active {
   -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
   box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
 }
-/* line 210, ../sass/main.scss */
+/* line 211, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn {
   left: 0;
   border-bottom: solid 2px #e2601d;
@@ -412,11 +413,11 @@ body {
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
-/* line 216, ../sass/main.scss */
+/* line 217, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn:hover {
   background: #e2601d;
 }
-/* line 219, ../sass/main.scss */
+/* line 220, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn:active {
   -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
@@ -482,7 +483,7 @@ body {
     opacity: 1;
   }
 }
-/* line 235, ../sass/main.scss */
+/* line 236, ../sass/main.scss */
 #message {
   color: #fff;
   padding: 8px 16px;
@@ -499,20 +500,20 @@ body {
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 3px 8px;
   box-shadow: rgba(0, 0, 0, 0.2) 0 3px 8px;
 }
-/* line 245, ../sass/main.scss */
+/* line 246, ../sass/main.scss */
 #message #m-title {
   font-size: 1.6em;
   text-align: center;
   display: block;
 }
-/* line 250, ../sass/main.scss */
+/* line 251, ../sass/main.scss */
 #message #m-text {
   display: block;
   font-size: 1.2em;
   text-align: center;
 }
 
-/* line 258, ../sass/main.scss */
+/* line 259, ../sass/main.scss */
 .show-message {
   -moz-animation: show-message 0.4s;
   -webkit-animation: show-message 0.4s;
@@ -522,7 +523,7 @@ body {
   animation-fill-mode: forwards;
 }
 
-/* line 263, ../sass/main.scss */
+/* line 264, ../sass/main.scss */
 .hide-message {
   -moz-animation: hide-message 1s;
   -webkit-animation: hide-message 1s;
