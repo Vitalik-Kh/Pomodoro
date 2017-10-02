@@ -115,11 +115,14 @@ body {
     max-width: 840px;
 
     .radial-progress {
+        overflow: hidden;
         $circle-size: 268px;
         position: relative;
         width: $circle-size;
         height: $circle-size;
         @include border-radius(50%);
+        @include animation(app-start-pom 1.2s);
+        @include animation-fill-mode(forwards);
         margin: auto;
         .circle {
             .mask, .fill {
@@ -150,8 +153,6 @@ body {
             @include box-shadow(rgba(black, 0.2) 0 4px 16px,
                                 rgba(black, 0.05) 0 0 16px inset);
             @include transition(background-color 1s);
-            @include animation(app-start-pom 1.2s);
-            @include animation-fill-mode(forwards);
             div {
                 span {
                     font-size: 4.8em;
