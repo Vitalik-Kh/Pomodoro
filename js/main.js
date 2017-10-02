@@ -186,8 +186,8 @@ $(document).ready(function() {
 
     //audio notification
     function notification() {
-        var filename = 'audio/ding_ling';
-        $('#sound').html('<audio autoplay="autoplay"><source src="' + filename + '.mp3" type="audio/mpeg" /><source src="' + filename + '.ogg" type="audio/ogg" /><embed hidden="true" autostart="true" loop="false" src="' + filename +'.mp3" /></audio>');
+        var audio = document.getElementById('sound');
+        audio.play();
     }
 
     //messages on the start of each pomodoro or break
@@ -195,7 +195,6 @@ $(document).ready(function() {
         var pom_color = 'rgba(226, 194, 29, 0.9)';
         var break_color = 'rgba(29, 226, 178, 0.9)';
         var x = Math.floor(Math.random() * 6);
-        console.log(x);
         if (sessionType === 'pomodoro') {
             showMessage(pom_messages[x], pom_color);
         } else { showMessage(break_messages[x], break_color) }

@@ -508,12 +508,11 @@ body {
 /* line 250, ../sass/main.scss */
 #message #m-text {
   display: block;
-  margin-top: 5px;
   font-size: 1.2em;
   text-align: center;
 }
 
-/* line 259, ../sass/main.scss */
+/* line 258, ../sass/main.scss */
 .show-message {
   -moz-animation: show-message 0.4s;
   -webkit-animation: show-message 0.4s;
@@ -523,7 +522,7 @@ body {
   animation-fill-mode: forwards;
 }
 
-/* line 264, ../sass/main.scss */
+/* line 263, ../sass/main.scss */
 .hide-message {
   -moz-animation: hide-message 1s;
   -webkit-animation: hide-message 1s;
