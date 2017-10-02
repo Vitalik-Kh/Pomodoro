@@ -484,6 +484,8 @@ body {
 }
 /* line 235, ../sass/main.scss */
 #message {
+  color: #fff;
+  padding: 8px 16px;
   z-index: 2;
   position: fixed;
   bottom: 3%;
@@ -493,22 +495,25 @@ body {
   -ms-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 3px 8px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 8px;
 }
-/* line 242, ../sass/main.scss */
+/* line 245, ../sass/main.scss */
 #message #m-title {
-  font-size: 1.4em;
+  font-size: 1.6em;
   text-align: center;
   display: block;
 }
-/* line 247, ../sass/main.scss */
+/* line 250, ../sass/main.scss */
 #message #m-text {
   display: block;
   margin-top: 5px;
-  font-size: 1em;
+  font-size: 1.2em;
   text-align: center;
 }
 
-/* line 255, ../sass/main.scss */
+/* line 259, ../sass/main.scss */
 .show-message {
   -moz-animation: show-message 0.4s;
   -webkit-animation: show-message 0.4s;
@@ -518,7 +523,7 @@ body {
   animation-fill-mode: forwards;
 }
 
-/* line 260, ../sass/main.scss */
+/* line 264, ../sass/main.scss */
 .hide-message {
   -moz-animation: hide-message 1s;
   -webkit-animation: hide-message 1s;

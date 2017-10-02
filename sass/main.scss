@@ -233,23 +233,27 @@ body {
 }//pomodoro
 
 #message {
+    color: #fff;
+    padding: 8px 16px;
     z-index: 2;
     position: fixed;
     bottom: 3%;
     left: 50%;
     display: none;
     @include transform(translateX(-50%));
+    @include box-shadow(rgba(black,0.2) 0 3px 8px);
     #m-title {
-        font-size: 1.4em;
+        font-size: 1.6em;
         text-align: center;
         display: block;
     }
     #m-text {
         display: block;
         margin-top: 5px;
-        font-size: 1em;
+        font-size: 1.2em;
         text-align: center;
     }
+
 }
 
 .show-message {

@@ -35,6 +35,18 @@ $(document).ready(function() {
     var pomDuration = $('#pom-duration').val();
     var breakDuration = $('#break-duration').val();
     var sessionType = 'pomodoro';
+    var pom_messages = ['Lets do some work!',
+                        'Go tiger! Do it!',
+                        'Just do it!',
+                        'Smash it this session!',
+                        'You are the best!',
+                        "It's work time!"];
+    var break_messages = ['Have a break!',
+                          'Time to chill!',
+                          'Now do nothing!',
+                          'Maybe short meditation?',
+                          'Time to find a couch!',
+                          'Break time!'];
 
     //start button/pomodoro states
     $('#left-btn').data('state', { 'stoped':true, 'paused':false });
@@ -123,18 +135,18 @@ $(document).ready(function() {
     }
 
     function inputValidation() {
-        tempPom = Math.round($('#pom-duration').val());
-        tempBreak = Math.round($('#break-duration').val());
-
+        var tempPom = Math.round($('#pom-duration').val());
+        var tempBreak = Math.round($('#break-duration').val());
+        var color = 'rgba(216,39,39,0.9)';
         if (inputIsValid(tempPom)) {
             pomDuration = tempPom;
             $('#pom-duration').val(tempPom);
-        } else { showMessage('Wrong input','#e2601d','Choose timer between 1 to 60 minutes'); }
+        } else { showMessage('Wrong input',color,'Choose timer between 1 to 60 minutes'); }
 
         if (inputIsValid(tempBreak)) {
             breakDuration = tempBreak;
             $('#break-duration').val(tempBreak);
-        } else { showMessage('Wrong input','#e2601d','Choose timer between 1 to 60 minutes'); }
+        } else { showMessage('Wrong input',color,'Choose timer between 1 to 60 minutes'); }
 
         if ($('#left-btn').data('state').stoped === true) {
             if (sessionType === 'pomodoro') {
@@ -146,7 +158,7 @@ $(document).ready(function() {
     }
 
     function showMessage(title, color, text='') {
-        $('#message').css({'display':'block', 'color':color}).removeClass('hide-message').addClass('show-message');
+        $('#message').css({'display':'block', 'backgroundColor':color}).removeClass('hide-message').addClass('show-message');
         $('#m-title').text(title);
         $('#m-text').text(text);
         setTimeout(function() {
@@ -178,24 +190,37 @@ $(document).ready(function() {
         $('#sound').html('<audio autoplay="autoplay"><source src="' + filename + '.mp3" type="audio/mpeg" /><source src="' + filename + '.ogg" type="audio/ogg" /><embed hidden="true" autostart="true" loop="false" src="' + filename +'.mp3" /></audio>');
     }
 
+    //messages on the start of each pomodoro or break
+    function sessionMessage() {
+        var pom_color = 'rgba(226, 194, 29, 0.9)';
+        var break_color = 'rgba(29, 226, 178, 0.9)';
+        var x = Math.floor(Math.random() * 6);
+        console.log(x);
+        if (sessionType === 'pomodoro') {
+            showMessage(pom_messages[x], pom_color);
+        } else { showMessage(break_messages[x], break_color) }
+    }
+
     function startBreak() {
+        sessionType = 'break';
+        sessionMessage();
         rotate(0);
         document.title = breakDuration + ':00 Pomodoro';
         $('#left-btn').text('Start').css('font-size','1.9em');
         $('#right-btn').text('Skip');
         $('#timer').text(zeroBefore(breakDuration) + ':00');
         $('#watch').css('background', '#1de2b2');
-        sessionType = 'break';
     }
 
     function startPomodoro() {
+        sessionType = 'pomodoro';
+        sessionMessage()
         rotate(0);
         document.title = pomDuration + ':00 Pomodoro';
         $('#left-btn').text('Start').css('font-size','1.9em');
         $('#right-btn').text('Stop');
         $('#timer').text(zeroBefore(pomDuration) + ':00');
         $('#watch').css('background', '#e2c21d');
-        sessionType = 'pomodoro';
     }
     startPomodoro();
 });
