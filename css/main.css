@@ -306,31 +306,41 @@ body {
 }
 @-moz-keyframes app-start-pom {
   from {
-    top: -150px;
+    -moz-transform: scale(1.05, 1.05);
+    transform: scale(1.05, 1.05);
     opacity: 0;
   }
   to {
-    top: 4px;
+    -moz-transform: scale(1, 1);
+    transform: scale(1, 1);
     opacity: 1;
   }
 }
 @-webkit-keyframes app-start-pom {
   from {
-    top: -150px;
+    -webkit-transform: scale(1.05, 1.05);
+    transform: scale(1.05, 1.05);
     opacity: 0;
   }
   to {
-    top: 4px;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
     opacity: 1;
   }
 }
 @keyframes app-start-pom {
   from {
-    top: -150px;
+    -moz-transform: scale(1.05, 1.05);
+    -ms-transform: scale(1.05, 1.05);
+    -webkit-transform: scale(1.05, 1.05);
+    transform: scale(1.05, 1.05);
     opacity: 0;
   }
   to {
-    top: 4px;
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
     opacity: 1;
   }
 }

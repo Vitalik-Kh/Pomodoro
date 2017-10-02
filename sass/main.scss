@@ -162,8 +162,8 @@ body {
     }
 
     @include keyframes(app-start-pom) {
-        from { top:-150px; @include opacity(0)}
-        to { top: 4px; @include opacity(1)}
+        from { @include transform(scale(1.05,1.05)); @include opacity(0)}
+        to { @include transform(scale(1,1)); @include opacity(1)}
     }
 
     .pom-btn {
