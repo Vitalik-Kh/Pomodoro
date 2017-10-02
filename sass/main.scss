@@ -113,9 +113,8 @@ body {
 
 #pomodoro {
     max-width: 840px;
-
+    overflow: hidden;
     .radial-progress {
-        overflow: hidden;
         $circle-size: 268px;
         position: relative;
         width: $circle-size;
