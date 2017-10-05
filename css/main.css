@@ -401,17 +401,17 @@ body {
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
-/* line 203, ../sass/main.scss */
+/* line 204, ../sass/main.scss */
 #pomodoro .pom-btn #left-btn:hover {
   background: #a0e21d;
 }
-/* line 206, ../sass/main.scss */
+/* line 207, ../sass/main.scss */
 #pomodoro .pom-btn #left-btn:active {
   -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
   box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
 }
-/* line 210, ../sass/main.scss */
+/* line 211, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn {
   left: 0;
   border-bottom: solid 2px #e2601d;
@@ -423,11 +423,11 @@ body {
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
-/* line 216, ../sass/main.scss */
+/* line 217, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn:hover {
   background: #e2601d;
 }
-/* line 219, ../sass/main.scss */
+/* line 220, ../sass/main.scss */
 #pomodoro .pom-btn #right-btn:active {
   -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 2px 8px inset;
@@ -493,7 +493,7 @@ body {
     opacity: 1;
   }
 }
-/* line 235, ../sass/main.scss */
+/* line 236, ../sass/main.scss */
 #message {
   color: #fff;
   padding: 8px 16px;
@@ -510,20 +510,20 @@ body {
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 3px 8px;
   box-shadow: rgba(0, 0, 0, 0.2) 0 3px 8px;
 }
-/* line 245, ../sass/main.scss */
+/* line 246, ../sass/main.scss */
 #message #m-title {
   font-size: 1.6em;
   text-align: center;
   display: block;
 }
-/* line 250, ../sass/main.scss */
+/* line 251, ../sass/main.scss */
 #message #m-text {
   display: block;
   font-size: 1.2em;
   text-align: center;
 }
 
-/* line 258, ../sass/main.scss */
+/* line 259, ../sass/main.scss */
 .show-message {
   -moz-animation: show-message 0.4s;
   -webkit-animation: show-message 0.4s;
@@ -533,7 +533,7 @@ body {
   animation-fill-mode: forwards;
 }
 
-/* line 263, ../sass/main.scss */
+/* line 264, ../sass/main.scss */
 .hide-message {
   -moz-animation: hide-message 1s;
   -webkit-animation: hide-message 1s;

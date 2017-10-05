@@ -73,17 +73,19 @@ $(document).ready(function() {
         if (leftBtn.stoped === true) {
             leftBtn.stoped = false;
             var stopTime = new Date().getTime() + (duration * 60 * 1000);
-            var progress_percents = 0;
+            var duration_in_ms = duration * 60 * 1000;
+            var passed_time;
             var progress_deg;
-            var step_in_percents = 100 / (duration * 60 * 1000);
+            var pause_duration = 0;
+            var pause_in_total = 0;
             var id = setInterval(function() {
                 var distance = stopTime - new Date().getTime();
                 if (leftBtn.paused === false) {
                     var min = zeroBefore(Math.floor(distance / (1000 * 60)));
                     var sec = zeroBefore(Math.floor(distance % (1000 * 60) / 1000));
                     $('#timer').text(min + ":" + sec);
-                    progress_percents += step_in_percents/2;
-                    progress_deg = progress_percents * 360;
+                    passed_time = duration_in_ms - distance;
+                    progress_deg = passed_time/duration_in_ms * 180;
                     rotate(progress_deg);
                     document.title = min + ':' + sec + ' Pomodoro';
                 } else {
@@ -176,7 +178,7 @@ $(document).ready(function() {
                             'transform'];
     function rotate(x) {
         var rotation = x;
-        var rotation_fix = rotation * 2;
+        var rotation_fix = x * 2;
         for(i in transform_styles) {
             $('.circle .fill, .circle .mask.full').css(transform_styles[i],
                          'rotate(' + rotation + 'deg)');
