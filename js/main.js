@@ -58,38 +58,45 @@ $(document).ready(function() {
             } else { startTimer(breakDuration); }
             leftBtn.stoped = false;
             $(this).text('Pause');
-        } else if (!leftBtn.stoped && !leftBtn.paused) {
+        } else if (!leftBtn.paused) {
             leftBtn.paused = true;
             $(this).text('Resume').css('font-size','1.4em');
-        } else if (!leftBtn.stoped && leftBtn.paused) {
+        } else if (leftBtn.paused) {
             leftBtn.paused = false;
+            leftBtn.stoped = true;
             $(this).text('Pause').css('font-size','1.9em');
+            startTimer(remaining_distance);
         }
     });
-
+    var remaining_distance;
+    var finished_distance = 0;
     //start timer function
     function startTimer(duration) {
         var leftBtn = $('#left-btn').data('state');
         if (leftBtn.stoped === true) {
             leftBtn.stoped = false;
-            var stopTime = new Date().getTime() + (duration * 60 * 1000);
-            var duration_in_ms = duration * 60 * 1000;
+            if (duration <= 60) {
+                duration_in_ms = duration * 60 * 1000;
+            } else { duration_in_ms = duration }
+            var stopTime = new Date().getTime() + duration_in_ms;
+            var duration_in_ms;
             var passed_time;
             var progress_deg;
-            var pause_duration = 0;
-            var pause_in_total = 0;
+
             var id = setInterval(function() {
                 var distance = stopTime - new Date().getTime();
                 if (leftBtn.paused === false) {
                     var min = zeroBefore(Math.floor(distance / (1000 * 60)));
                     var sec = zeroBefore(Math.floor(distance % (1000 * 60) / 1000));
                     $('#timer').text(min + ":" + sec);
-                    passed_time = duration_in_ms - distance;
-                    progress_deg = passed_time/duration_in_ms * 180;
+                    passed_time = finished_distance + duration_in_ms - distance;
+                    progress_deg = passed_time/(duration_in_ms + finished_distance) * 180;
                     rotate(progress_deg);
                     document.title = min + ':' + sec + ' Pomodoro';
                 } else {
-                    stopTime += 100;
+                    remaining_distance = distance;
+                    finished_distance += duration_in_ms - distance;
+                    clearInterval(id);
                 }
                 if (distance <= 100) {
                     clearInterval(id)
@@ -105,7 +112,7 @@ $(document).ready(function() {
                     leftBtn.stoped = true;
                     leftBtn.paused = false;
                     $('#right-btn').data('clicked', false);
-                    startPomodoro();
+                    return startPomodoro();
                 }
             }, 100);
         }
@@ -116,7 +123,7 @@ $(document).ready(function() {
         var leftBtn = $('#left-btn').data('state');
         if (!leftBtn.stoped) {
             $(this).data('clicked', true); }
-        if (leftBtn.stoped && sessionType === 'break') {
+        if (sessionType === 'break') {
             startPomodoro();
         }
     });
@@ -194,6 +201,7 @@ $(document).ready(function() {
 
     //messages on the start of each pomodoro or break
     function sessionMessage() {
+        finished_distance = 0;
         var pom_color = 'rgba(226, 194, 29, 0.9)';
         var break_color = 'rgba(29, 226, 178, 0.9)';
         var x = Math.floor(Math.random() * 6);
@@ -203,6 +211,7 @@ $(document).ready(function() {
     }
 
     function startBreak() {
+        finished_distance = 0;
         sessionType = 'break';
         sessionMessage();
         rotate(0);
