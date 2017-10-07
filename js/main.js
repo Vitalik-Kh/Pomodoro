@@ -35,6 +35,8 @@ $(document).ready(function() {
     var pomDuration = $('#pom-duration').val();
     var breakDuration = $('#break-duration').val();
     var sessionType = 'pomodoro';
+    var remaining_distance;
+    var finished_distance = 0;
     var pom_messages = ['Lets do some work!',
                         'Go tiger! Do it!',
                         'Just do it!',
@@ -68,8 +70,7 @@ $(document).ready(function() {
             startTimer(remaining_distance);
         }
     });
-    var remaining_distance;
-    var finished_distance = 0;
+
     //start timer function
     function startTimer(duration) {
         var leftBtn = $('#left-btn').data('state');
@@ -123,6 +124,12 @@ $(document).ready(function() {
         var leftBtn = $('#left-btn').data('state');
         if (!leftBtn.stoped) {
             $(this).data('clicked', true); }
+        if (leftBtn.paused) {
+            leftBtn.stoped = true;
+            leftBtn.paused = false;
+            $('#right-btn').data('clicked', false);
+            startPomodoro();
+        }
         if (sessionType === 'break') {
             startPomodoro();
         }
